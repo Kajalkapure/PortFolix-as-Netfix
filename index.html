@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Kajal Kapure — Computer Science student, developer, and builder. Experience a bespoke streaming-style portfolio featuring projects, skills, timeline, and achievements.">
+  <meta name="author" content="Kajal Kapure">
+  <title>Kajal Kapure | Portfolio</title>
+
+  <!-- Google Fonts: Playfair Display (Headings) & DM Sans (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..800;1,9..40,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress-bar" class="scroll-progress-bar" aria-hidden="true"></div>
+
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- =========================================================================
+       1. "WHO'S WATCHING?" INTRO OVERLAY
+       ========================================================================= -->
+  <div id="intro-gate" class="intro-gate" role="dialog" aria-modal="true" aria-labelledby="intro-gate-title">
+    <div class="intro-gate-container">
+      <div class="intro-header">
+        <span class="intro-kicker">Welcome to Kajal Kapure's Portfolio</span>
+        <h1 id="intro-gate-title" class="intro-title">Who's watching?</h1>
+        <p class="intro-subtitle">Select a persona to tailor your browsing experience and spotlight relevant work.</p>
+      </div>
+
+      <div class="profile-cards-grid" role="group" aria-label="Profile selector">
+        <!-- Profile 1: Recruiter -->
+        <button class="profile-card" data-persona="recruiter" type="button" aria-label="Browse as Recruiter: focus on skills, resume, and production code">
+          <div class="profile-avatar-frame avatar-recruiter">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+          </div>
+          <span class="profile-name">Recruiter</span>
+          <span class="profile-desc">Skills, Resume &amp; Production Architecture</span>
+          <span class="profile-tag">Direct Hire</span>
+        </button>
+
+        <!-- Profile 2: Teacher / Judge -->
+        <button class="profile-card" data-persona="judge" type="button" aria-label="Browse as Teacher or Judge: focus on architecture, algorithms, and honors">
+          <div class="profile-avatar-frame avatar-judge">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="8" r="6"></circle>
+              <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
+            </svg>
+          </div>
+          <span class="profile-name">Teacher / Judge</span>
+          <span class="profile-desc">Academic Rigor, Hackathons &amp; Logic</span>
+          <span class="profile-tag">Evaluation</span>
+        </button>
+
+        <!-- Profile 3: Friend / Peer -->
+        <button class="profile-card" data-persona="friend" type="button" aria-label="Browse as Friend or Fellow Student: casual tour and creative journey">
+          <div class="profile-avatar-frame avatar-friend">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path>
+            </svg>
+          </div>
+          <span class="profile-name">Friend / Peer</span>
+          <span class="profile-desc">Side Projects, Experiments &amp; Chai Stats</span>
+          <span class="profile-tag">Casual Tour</span>
+        </button>
+      </div>
+
+      <div class="intro-actions">
+        <button id="intro-skip-btn" class="btn btn-outline-subtle" type="button">
+          Skip to general overview &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. STICKY TOP BAR
+       ========================================================================= -->
+  <header class="site-header" id="site-header">
+    <div class="nav-container">
+      
+      <!-- Logo -->
+      <a href="#hero" class="brand-logo" aria-label="Kajal Kapure Home">
+        <span class="logo-mark" aria-hidden="true">K</span>
+        <span class="logo-name gradient-text">Kajal Kapure</span>
+      </a>
+
+      <!-- Primary Navigation Links -->
+      <nav id="primary-navigation" class="nav-links" aria-label="Primary Navigation">
+        <a href="#hero" class="nav-link">Home</a>
+        <a href="#continue-watching" class="nav-link">Current</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#top-skills" class="nav-link">Top 10</a>
+        <a href="#skills-matrix" class="nav-link">Skills</a>
+        <a href="#journey" class="nav-link">Journey</a>
+        <a href="#testimonials" class="nav-link">Testimonials</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right Action Controls (Search, Theme Toggle, Profile, Mobile Menu) -->
+      <div class="nav-tools">
+        
+        <!-- Live Search Box -->
+        <div class="search-widget" id="search-widget">
+          <label for="portfolio-search" class="visually-hidden">Search projects and skills</label>
+          <div class="search-input-wrap">
+            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input 
+              type="search" 
+              id="portfolio-search" 
+              class="search-input" 
+              placeholder="Search work..." 
+              autocomplete="off"
+            >
+            <button id="search-clear-btn" class="search-clear-btn" type="button" aria-label="Clear search" hidden>&times;</button>
+          </div>
+          <!-- Live search instant dropdown results -->
+          <div id="search-results-dropdown" class="search-results-dropdown" hidden role="listbox"></div>
+        </div>
+
+        <!-- Active Persona Pill & Switcher -->
+        <button id="persona-badge-btn" class="persona-badge-btn" type="button" aria-label="Switch browsing profile" title="Switch viewing persona">
+          <span class="persona-dot" aria-hidden="true"></span>
+          <span id="persona-badge-text" class="persona-badge-text">Profile</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle (Dark / Light) -->
+        <button id="theme-toggle-btn" class="theme-toggle-btn" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button 
+          id="menu-toggle" 
+          class="menu-toggle" 
+          type="button" 
+          aria-controls="primary-navigation" 
+          aria-expanded="false" 
+          aria-label="Toggle navigation menu"
+        >
+          <span class="menu-bar" aria-hidden="true"></span>
+          <span class="menu-bar" aria-hidden="true"></span>
+          <span class="menu-bar" aria-hidden="true"></span>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- =========================================================================
+       PERSONA BANNER (DYNAMIC GREETING)
+       ========================================================================= -->
+  <div id="persona-callout" class="persona-callout" role="status">
+    <div class="persona-callout-inner">
+      <div class="persona-callout-content">
+        <span id="persona-callout-icon" class="persona-callout-icon" aria-hidden="true">✨</span>
+        <span id="persona-callout-text" class="persona-callout-text">Welcome! Explore Kajal Kapure's streaming portfolio.</span>
+      </div>
+      <button id="persona-callout-switch" class="persona-callout-link" type="button">Change profile</button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       MAIN CONTENT LANDMARK
+       ========================================================================= -->
+  <main id="main-content">
+
+    <!-- =======================================================================
+         3. HERO BILLBOARD BANNER
+         ======================================================================= -->
+    <section id="hero" class="hero-billboard" aria-labelledby="hero-headline">
+      
+      <!-- Subtle Animated Ambient Background -->
+      <div class="hero-canvas-bg" aria-hidden="true">
+        <div class="ambient-orb orb-1"></div>
+        <div class="ambient-orb orb-2"></div>
+        <div class="ambient-orb orb-3"></div>
+      </div>
+
+      <div class="hero-container">
+        <div class="hero-grid">
+          
+          <!-- Hero Narrative & Typing Roles -->
+          <div class="hero-text-col">
+            <div class="hero-badge">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>Available for 2026 Internships &amp; Roles</span>
+            </div>
+
+            <h1 id="hero-headline" class="hero-title">
+              Hi, I'm <span class="gradient-text">Kajal Kapure</span>
+            </h1>
+
+            <!-- Typing Animation Subheading -->
+            <div class="typing-container" aria-live="polite">
+              <span class="typing-static">I am a&nbsp;</span>
+              <span id="typing-text" class="typing-dynamic">Computer Science Student</span>
+              <span class="typing-cursor" aria-hidden="true">|</span>
+            </div>
+
+            <p class="hero-summary">
+              Undergraduate engineer crafting accessible, modular web software with human-centered aesthetics and rigorous algorithmic foundations.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="btn btn-primary">
+                <span>View projects</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+              <button id="resume-open-btn" class="btn btn-secondary" type="button">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                <span>Download resume</span>
+              </button>
+              <a href="#contact" class="btn btn-outline">
+                <span>Contact me</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Hero Billboard Featured Showcase (Rotates every 6 seconds) -->
+          <div class="hero-showcase-col">
+            <div class="featured-billboard-card" id="featured-billboard" aria-label="Auto-rotating featured project spotlight">
+              <div class="billboard-top">
+                <span class="billboard-spotlight-tag">Featured Spotlight</span>
+                <span id="billboard-category" class="billboard-category">Web Application</span>
+              </div>
+              <div class="billboard-graphic" id="billboard-graphic">
+                <!-- Injected via script.js -->
+              </div>
+              <div class="billboard-details">
+                <h2 id="billboard-title" class="billboard-title">Campus Lost &amp; Found Hub</h2>
+                <p id="billboard-description" class="billboard-description">
+                  A high-utility student platform enabling swift recovery of misplaced campus items with verification flows.
+                </p>
+                <div class="billboard-footer">
+                  <button id="billboard-explore-btn" class="btn btn-primary btn-sm" type="button">
+                    <span>Inspect Project</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                  </button>
+                  <div class="billboard-dots" id="billboard-dots" role="tablist" aria-label="Featured slides">
+                    <!-- Dots injected via script.js -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         6. ANIMATED STATS COUNTERS
+         ======================================================================= -->
+    <section class="stats-counter-section" aria-label="Kajal Kapure portfolio numbers at a glance">
+      <div class="stats-container">
+        <div class="stat-card" data-target="12">
+          <span class="stat-number" id="stat-projects">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Projects Completed</span>
+          <span class="stat-sub">From concept to deployment</span>
+        </div>
+        <div class="stat-card" data-target="18">
+          <span class="stat-number" id="stat-tech">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Technologies &amp; Tools</span>
+          <span class="stat-sub">Languages, databases &amp; frameworks</span>
+        </div>
+        <div class="stat-card" data-target="8">
+          <span class="stat-number" id="stat-certs">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Honors &amp; Certificates</span>
+          <span class="stat-sub">Merits, hackathons &amp; verified courses</span>
+        </div>
+        <div class="stat-card" data-target="350">
+          <span class="stat-number" id="stat-chai">0</span><span class="stat-plus">+</span>
+          <span class="stat-label">Cups of Chai</span>
+          <span class="stat-sub">Fueling clean code sessions</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         4. HORIZONTAL SCROLLING ROWS
+         ======================================================================= -->
+
+    <!-- ROW 1: Continue Watching (Work In Progress) -->
+    <section id="continue-watching" class="streaming-rail-section" aria-labelledby="rail-continue-title">
+      <div class="rail-header">
+        <div class="rail-title-group">
+          <span class="rail-eyebrow">Work In Progress</span>
+          <h2 id="rail-continue-title" class="rail-heading">Continue Watching</h2>
+          <p class="rail-subheading">Active development projects currently being engineered by Kajal Kapure.</p>
+        </div>
+        <div class="rail-actions">
+          <button class="rail-arrow-btn prev-arrow" data-rail="rail-wip" type="button" aria-label="Scroll backward">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="rail-arrow-btn next-arrow" data-rail="rail-wip" type="button" aria-label="Scroll forward">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="rail-track" id="rail-wip" role="region" aria-label="Work in progress items" tabindex="0">
+        <!-- Rendered dynamically via script.js -->
+      </div>
+    </section>
+
+    <!-- ROW 2: My Projects (With Category Filter Chips) -->
+    <section id="projects" class="streaming-rail-section" aria-labelledby="rail-projects-title">
+      <div class="rail-header">
+        <div class="rail-title-group">
+          <span class="rail-eyebrow">Curated Portfolio</span>
+          <h2 id="rail-projects-title" class="rail-heading">My Projects</h2>
+          <p class="rail-subheading">Engineered student solutions with problem, solution, and result breakdowns.</p>
+        </div>
+        
+        <!-- Filter Chips: All, Web, Design, Other -->
+        <div class="filter-chips" role="group" aria-label="Filter projects by category">
+          <button class="chip active" data-filter="all" type="button">All Projects</button>
+          <button class="chip" data-filter="web" type="button">Web Engineering</button>
+          <button class="chip" data-filter="design" type="button">UI / UX Design</button>
+          <button class="chip" data-filter="other" type="button">Core Systems &amp; CLI</button>
+        </div>
+
+        <div class="rail-actions">
+          <button class="rail-arrow-btn prev-arrow" data-rail="rail-projects-list" type="button" aria-label="Scroll projects backward">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="rail-arrow-btn next-arrow" data-rail="rail-projects-list" type="button" aria-label="Scroll projects forward">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="rail-track" id="rail-projects-list" role="region" aria-label="Projects rail" tabindex="0">
+        <!-- Rendered dynamically via script.js PROJECTS_DATA -->
+      </div>
+    </section>
+
+    <!-- ROW 3: Top 10 Skills (Top 10 Big Numbers Style) -->
+    <section id="top-skills" class="streaming-rail-section" aria-labelledby="rail-top10-title">
+      <div class="rail-header">
+        <div class="rail-title-group">
+          <span class="rail-eyebrow">Ranked Proficiencies</span>
+          <h2 id="rail-top10-title" class="rail-heading">Top 10 Skills</h2>
+          <p class="rail-subheading">Kajal Kapure's highest impact technical proficiencies and engineering tools.</p>
+        </div>
+        <div class="rail-actions">
+          <button class="rail-arrow-btn prev-arrow" data-rail="rail-top10" type="button" aria-label="Scroll skills backward">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="rail-arrow-btn next-arrow" data-rail="rail-top10" type="button" aria-label="Scroll skills forward">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="rail-track top10-track" id="rail-top10" role="region" aria-label="Top 10 skills rail" tabindex="0">
+        <!-- Rendered dynamically via script.js TOP10_SKILLS_DATA -->
+      </div>
+    </section>
+
+    <!-- ROW 4: Achievements & Certificates -->
+    <section id="achievements" class="streaming-rail-section" aria-labelledby="rail-achieve-title">
+      <div class="rail-header">
+        <div class="rail-title-group">
+          <span class="rail-eyebrow">Verified Milestones</span>
+          <h2 id="rail-achieve-title" class="rail-heading">Achievements &amp; Certificates</h2>
+          <p class="rail-subheading">Dean's honors, hackathon finals, and credentialed technical coursework.</p>
+        </div>
+        <div class="rail-actions">
+          <button class="rail-arrow-btn prev-arrow" data-rail="rail-achievements" type="button" aria-label="Scroll achievements backward">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <button class="rail-arrow-btn next-arrow" data-rail="rail-achievements" type="button" aria-label="Scroll achievements forward">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="rail-track" id="rail-achievements" role="region" aria-label="Achievements rail" tabindex="0">
+        <!-- Rendered dynamically via script.js ACHIEVEMENTS_DATA -->
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         7. SKILLS MATRIX WITH ANIMATED PROGRESS BARS & CATEGORY TABS
+         ======================================================================= -->
+    <section id="skills-matrix" class="skills-matrix-section" aria-labelledby="matrix-title">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-tagline">Competency Breakdown</span>
+          <h2 id="matrix-title" class="section-title">Technical Skills Matrix</h2>
+          <p class="section-subtitle">Deep dive into frontend development, systems programming, and soft skills with verified proficiency metrics.</p>
+          
+          <!-- Category Tabs -->
+          <div class="matrix-tabs" role="tablist" aria-label="Skill categories">
+            <button class="matrix-tab-btn active" role="tab" aria-selected="true" aria-controls="panel-frontend" id="tab-frontend" type="button">
+              Frontend &amp; UX
+            </button>
+            <button class="matrix-tab-btn" role="tab" aria-selected="false" aria-controls="panel-backend" id="tab-backend" type="button">
+              Systems &amp; Data
+            </button>
+            <button class="matrix-tab-btn" role="tab" aria-selected="false" aria-controls="panel-soft" id="tab-soft" type="button">
+              Professional &amp; Soft Skills
+            </button>
+          </div>
+        </div>
+
+        <!-- Tab Panels -->
+        <div class="matrix-panels">
+          
+          <!-- Panel 1: Frontend -->
+          <div id="panel-frontend" class="matrix-panel active" role="tabpanel" aria-labelledby="tab-frontend">
+            <div class="skills-bar-grid">
+              
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Semantic HTML5 &amp; Web Standards</span>
+                  <span class="bar-percent">95%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="95" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Accessible landmark structuring, high semantic fidelity, and SEO optimization.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Modern CSS3 (Grid &amp; Flexbox)</span>
+                  <span class="bar-percent">92%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="92" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Responsive token-driven layouts, custom properties, and fluid typography.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Vanilla JavaScript (ES6+)</span>
+                  <span class="bar-percent">88%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="88" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">DOM manipulation, async patterns, event delegation, and state architecture.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Accessibility (WCAG 2.1 AA)</span>
+                  <span class="bar-percent">90%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="90" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Keyboard navigation traps, screen reader landmarks, and contrast ratios.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Panel 2: Systems & Data -->
+          <div id="panel-backend" class="matrix-panel" role="tabpanel" aria-labelledby="tab-backend" hidden>
+            <div class="skills-bar-grid">
+              
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Python 3 Programming</span>
+                  <span class="bar-percent">85%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="85" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Object-oriented programming, data structure implementations, and scripts.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Relational SQL &amp; Data Modeling</span>
+                  <span class="bar-percent">82%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="82" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Schema normalization, multi-table joins, indexing, and ACID transaction rules.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Data Structures &amp; Algorithms</span>
+                  <span class="bar-percent">86%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="86" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Trees, heaps, graph traversals, and dynamic programming problem solving.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Git &amp; Collaborative Workflows</span>
+                  <span class="bar-percent">90%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="90" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Atomic commits, branch isolation, merge conflict resolution, and PR reviews.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Panel 3: Soft Skills -->
+          <div id="panel-soft" class="matrix-panel" role="tabpanel" aria-labelledby="tab-soft" hidden>
+            <div class="skills-bar-grid">
+              
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Collaborative Team Communication</span>
+                  <span class="bar-percent">94%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="94" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Clear technical communication in 24-hr hackathons and collegiate labs.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">First-Principles Problem Solving</span>
+                  <span class="bar-percent">92%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="92" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Breaking unfamiliar system bugs into isolated, testable hypotheses.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Self-Directed Learning &amp; Curiosity</span>
+                  <span class="bar-percent">96%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="96" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Rapidly mastering new language specifications and evolving web APIs.</p>
+              </div>
+
+              <div class="skill-bar-card">
+                <div class="bar-header">
+                  <span class="bar-title">Time &amp; Sprint Management</span>
+                  <span class="bar-percent">89%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill" data-progress="89" style="width: 0%;"></div>
+                </div>
+                <p class="bar-desc">Delivering academic milestones on schedule while sustaining code quality.</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         8. EDUCATION & JOURNEY TIMELINE
+         ======================================================================= -->
+    <section id="journey" class="journey-timeline-section" aria-labelledby="journey-title">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-tagline">Academic &amp; Engineering Story</span>
+          <h2 id="journey-title" class="section-title">Education &amp; Journey Timeline</h2>
+          <p class="section-subtitle">How Kajal Kapure transitioned from curious student to deliberate, production-minded builder.</p>
+        </div>
+
+        <div class="timeline-container" id="timeline-container">
+          <div class="timeline-spine" aria-hidden="true"></div>
+          <div id="timeline-list">
+
+            <!-- Timeline Milestone 1: 2025 -->
+            <div class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-year">2025 &bull; Groundwork &amp; Commencement</span>
+                <h3 class="timeline-heading">B.Tech in Computer Engineering Commenced at RCPIT</h3>
+                <p class="timeline-body">
+                  Embarked on engineering degree at R. C. Patel Institute of Technology (RCPIT) for the 2025 &ndash; 2029 cycle. Mastered foundational computation: discrete mathematics, object-oriented concepts, and algorithmic problem-solving with Python and C.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-chip">RCPIT</span>
+                  <span class="timeline-chip">Computer Engineering</span>
+                  <span class="timeline-chip">Data Structures</span>
+                  <span class="timeline-chip">Python</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Milestone 2: 2025 - 2026 -->
+            <div class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-year">2025 &ndash; 2026 &bull; Web Architecture</span>
+                <h3 class="timeline-heading">Building Production-Grade Frontends</h3>
+                <p class="timeline-body">
+                  Deepened focus into modern web systems during coursework. Prioritized semantic HTML, CSS layout systems, and vanilla JavaScript DOM mechanics without reliance on heavy frameworks. Completed certified responsive accessibility programs.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-chip">Vanilla JS</span>
+                  <span class="timeline-chip">WCAG AA</span>
+                  <span class="timeline-chip">Responsive UX</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Milestone 3: 2026 (Current) -->
+            <div class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-year">2026 &bull; Current Year &amp; Practice</span>
+                <h3 class="timeline-heading">Hackathon Finalist &amp; Peer Platforms</h3>
+                <p class="timeline-body">
+                  Currently in 2nd year of B.Tech at RCPIT. Co-created the university resource-sharing prototype during a 24-hour sprint, finishing as an evaluated finalist. Engineered the Campus Lost &amp; Found Hub and Timetable Tracker for real student daily use.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-chip">RCPIT</span>
+                  <span class="timeline-chip">Hackathon Finalist</span>
+                  <span class="timeline-chip">Team Git</span>
+                  <span class="timeline-chip">State Engines</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timeline Milestone 4: 2026 - 2029 (Expected Graduation) -->
+            <div class="timeline-item">
+              <div class="timeline-marker" aria-hidden="true">
+                <span class="marker-dot"></span>
+              </div>
+              <div class="timeline-content">
+                <span class="timeline-year">2026 &ndash; 2029 &bull; Looking Ahead</span>
+                <h3 class="timeline-heading">Advanced Systems &amp; Expected Graduation: 2029</h3>
+                <p class="timeline-body">
+                  Pursuing advanced computer engineering curriculum at RCPIT. Preparing for software engineering internships and open-source contributions, advancing toward expected graduation in 2029.
+                </p>
+                <div class="timeline-tags">
+                  <span class="timeline-chip">Expected Graduation: 2029</span>
+                  <span class="timeline-chip">RCPIT</span>
+                  <span class="timeline-chip">System Design</span>
+                  <span class="timeline-chip">Continuous Learning</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         9. TESTIMONIALS SLIDER
+         ======================================================================= -->
+    <section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-title">
+      <div class="section-container">
+        <div class="section-header-centered">
+          <span class="section-tagline">Peer &amp; Mentor Words</span>
+          <h2 id="testimonials-title" class="section-title">What Collaborators Say</h2>
+          <p class="section-subtitle">Reflections from instructors, team peers, and project partners on working with Kajal Kapure.</p>
+        </div>
+
+        <div class="testimonials-slider-wrap">
+          <div class="testimonials-slider" id="testimonials-slider" role="region" aria-label="Testimonial reviews" aria-live="off">
+            
+            <!-- Slide 1 -->
+            <div class="testimonial-slide active" data-index="0">
+              <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+              <blockquote class="testimonial-quote">
+                Kajal brings an exceptional combination of architectural patience and craft. While many students rush for flashy templates, she writes semantic, resilient code with deliberate focus on accessibility and user delight.
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">PM</div>
+                <div class="author-info">
+                  <span class="author-name">Dr. Radhika Sen</span>
+                  <span class="author-role">Academic Project Mentor &bull; Computer Science</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="testimonial-slide" data-index="1">
+              <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+              <blockquote class="testimonial-quote">
+                During our 24-hour hackathon, Kajal was the anchor of our team. When pressure mounted at 3 AM, her crisp frontend implementation and calm debugging turned our rough idea into an evaluated finalist entry.
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">HT</div>
+                <div class="author-info">
+                  <span class="author-name">Aarav Kulkarni</span>
+                  <span class="author-role">Hackathon Teammate &bull; Systems Lead</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="testimonial-slide" data-index="2">
+              <div class="quote-mark" aria-hidden="true">&ldquo;</div>
+              <blockquote class="testimonial-quote">
+                Her curiosity is palpable in every lab session. Kajal doesn’t just complete the assignment; she asks deep questions about DOM reflows, algorithmic complexity, and how to build software that lasts.
+              </blockquote>
+              <div class="testimonial-author">
+                <div class="author-avatar" aria-hidden="true">LI</div>
+                <div class="author-info">
+                  <span class="author-name">Prof. Vikram Joshi</span>
+                  <span class="author-role">Senior Lab Instructor &bull; Web Systems</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Slider Controls -->
+          <div class="slider-controls">
+            <button id="testimonial-prev" class="slider-arrow-btn" type="button" aria-label="Previous testimonial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="slider-dots" id="testimonial-dots" role="tablist" aria-label="Testimonial pagination">
+              <!-- Injected via script.js -->
+            </div>
+            <button id="testimonial-next" class="slider-arrow-btn" type="button" aria-label="Next testimonial">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         10. CONTACT SECTION
+         ======================================================================= -->
+    <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+      <div class="section-container">
+        <div class="contact-card-box">
+          
+          <div class="contact-header-wrap">
+            <span class="section-tagline">Open Channel</span>
+            <h2 id="contact-heading" class="section-title">Get in Touch with Kajal Kapure</h2>
+            <p class="contact-lead">
+              Seeking an internship, software project collaboration, or want to discuss web engineering? My inbox is always open.
+            </p>
+            
+            <div class="direct-email-pill">
+              <span class="email-pill-label">Direct Email:</span>
+              <a href="mailto:kapurekajal06@gmail.com" class="email-pill-address" aria-label="Send email to kapurekajal06@gmail.com">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <span>kapurekajal06@gmail.com</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-row-2">
+              <div class="form-field">
+                <label for="form-name" class="field-label">Your Name <span class="req" aria-hidden="true">*</span></label>
+                <input 
+                  type="text" 
+                  id="form-name" 
+                  name="name" 
+                  class="field-input" 
+                  placeholder="e.g. Maya Sharma" 
+                  required
+                >
+                <span id="err-name" class="field-error" aria-live="polite"></span>
+              </div>
+              <div class="form-field">
+                <label for="form-email" class="field-label">Your Email <span class="req" aria-hidden="true">*</span></label>
+                <input 
+                  type="email" 
+                  id="form-email" 
+                  name="email" 
+                  class="field-input" 
+                  placeholder="e.g. maya@example.com" 
+                  required
+                >
+                <span id="err-email" class="field-error" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="form-subject" class="field-label">Subject <span class="req" aria-hidden="true">*</span></label>
+              <input 
+                type="text" 
+                id="form-subject" 
+                name="subject" 
+                class="field-input" 
+                placeholder="e.g. Summer 2026 Internship Opportunity" 
+                required
+              >
+              <span id="err-subject" class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="form-message" class="field-label">Message <span class="req" aria-hidden="true">*</span></label>
+              <textarea 
+                id="form-message" 
+                name="message" 
+                class="field-textarea" 
+                rows="5" 
+                placeholder="Hello Kajal, I came across your portfolio..." 
+                required
+              ></textarea>
+              <span id="err-message" class="field-error" aria-live="polite"></span>
+            </div>
+
+            <div id="form-alert" class="form-alert" role="status" aria-live="polite"></div>
+
+            <button type="submit" class="btn btn-primary form-submit-btn">
+              <span>Send Message to Kajal Kapure</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       5. DETAILED PROJECT MODAL (With Problem -> Solution -> Result)
+       ========================================================================= -->
+  <div 
+    id="project-modal" 
+    class="modal-backdrop" 
+    role="dialog" 
+    aria-modal="true" 
+    aria-hidden="true" 
+    aria-labelledby="modal-project-title"
+  >
+    <div class="modal-dialog-box">
+      <!-- Close Button -->
+      <button id="modal-close-btn" class="modal-close-icon" type="button" aria-label="Close project dialog">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <!-- Modal Body Content Injected Dynamically -->
+      <div id="modal-dynamic-body" class="modal-dynamic-body">
+        <!-- Rendered via script.js -->
+      </div>
+
+      <!-- Navigation inside Modal (Prev / Next project) -->
+      <div class="modal-nav-bar">
+        <button id="modal-prev-btn" class="btn btn-outline btn-sm" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+          <span>Previous Project</span>
+        </button>
+        <span id="modal-counter" class="modal-counter-indicator">Project 1 of 6</span>
+        <button id="modal-next-btn" class="btn btn-outline btn-sm" type="button">
+          <span>Next Project</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       RESUME MODAL (Download / Print / View)
+       ========================================================================= -->
+  <div 
+    id="resume-modal" 
+    class="modal-backdrop" 
+    role="dialog" 
+    aria-modal="true" 
+    aria-hidden="true" 
+    aria-labelledby="resume-modal-title"
+  >
+    <div class="modal-dialog-box resume-modal-box">
+      <button id="resume-close-btn" class="modal-close-icon" type="button" aria-label="Close resume dialog">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="resume-sheet">
+        <div class="resume-header">
+          <div>
+            <h2 id="resume-modal-title" class="resume-name">Kajal Kapure</h2>
+            <p class="resume-title-sub">B.Tech in Computer Engineering &bull; RCPIT (2025 &ndash; 2029)</p>
+          </div>
+          <div class="resume-contact-info">
+            <a href="mailto:kapurekajal06@gmail.com" class="resume-link">kapurekajal06@gmail.com</a>
+            <span>Open to Relocation &bull; 2026</span>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h3 class="resume-section-title">Executive Summary</h3>
+          <p class="resume-paragraph">
+            Ambitious Computer Engineering undergraduate at RCPIT (Class of 2029, expected graduation: 2029) with focused proficiency in accessible frontend engineering, structured data modeling, and clean vanilla JavaScript architecture. Proven track record in 24-hour hackathon finals and high-academic coursework.
+          </p>
+        </div>
+
+        <div class="resume-section">
+          <h3 class="resume-section-title">Core Competencies</h3>
+          <div class="resume-skills-pills">
+            <span>Semantic HTML5</span>
+            <span>CSS3 Grid &amp; Flexbox</span>
+            <span>Vanilla JavaScript (ES6+)</span>
+            <span>Python 3</span>
+            <span>PostgreSQL &amp; SQLite</span>
+            <span>Git &amp; GitHub</span>
+            <span>WCAG 2.1 AA</span>
+            <span>DOM Performance</span>
+          </div>
+        </div>
+
+        <div class="resume-section">
+          <h3 class="resume-section-title">Education</h3>
+          <div class="resume-edu-item">
+            <div class="resume-flex-between">
+              <strong>Bachelor of Technology (B.Tech) in Computer Engineering &bull; RCPIT</strong>
+              <span class="resume-date">2025 &ndash; 2029</span>
+            </div>
+            <p class="resume-sub">RCPIT &bull; Dean's Academic Merit Scholar &bull; Expected graduation: 2029</p>
+          </div>
+        </div>
+
+        <div class="resume-actions-row">
+          <button class="btn btn-primary" onclick="window.print()" type="button">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            <span>Print / Save as PDF</span>
+          </button>
+          <a href="mailto:kapurekajal06@gmail.com?subject=Interview%20Inquiry%20-%20Kajal%20Kapure" class="btn btn-secondary">
+            <span>Email Directly</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-top-row">
+        <div class="footer-identity">
+          <span class="footer-brand gradient-text">Kajal Kapure</span>
+          <p class="footer-sub">Student Portfolio &bull; Engineered with HTML, CSS &amp; Vanilla JavaScript</p>
+        </div>
+        <div class="footer-links">
+          <a href="#hero">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#top-skills">Top 10</a>
+          <a href="#skills-matrix">Skills</a>
+          <a href="#journey">Journey</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer-bottom-row">
+        <p class="footer-copyright">&copy; 2026 Kajal Kapure. All rights reserved.</p>
+        <a href="#hero" class="footer-top-btn" aria-label="Back to top">
+          <span>Back to top</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Vanilla JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
